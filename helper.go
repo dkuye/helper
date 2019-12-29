@@ -55,6 +55,10 @@ func Int64ToString(n int64) string {
 	return strconv.FormatInt(n, 10)
 }
 
+func Unit64ToSting(n uint64) string {
+	return strconv.FormatUint(n, 10)
+}
+
 func StringToInt(s string) int {
 	if s == "" {
 		return 0
