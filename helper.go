@@ -1,10 +1,12 @@
 package helper
 
 import (
+	"fmt"
 	"github.com/google/uuid"
 	"github.com/leekchan/accounting"
 	"golang.org/x/crypto/bcrypt"
 	"math/rand"
+	"os"
 	"strconv"
 	"time"
 )
@@ -50,6 +52,18 @@ func IntToString(n int) string {
 
 func Int64ToString(n int64) string {
 	return strconv.FormatInt(n, 10)
+}
+
+func StringToInt(s string) int {
+	if s == "" {
+		return 0
+	}
+	i, err := strconv.Atoi(s)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(2)
+	}
+	return i
 }
 
 func MakeRange(min, max int) []int {
