@@ -145,3 +145,7 @@ func ToJson(data interface{}) string {
 	}
 	return  string(b)
 }
+
+func UnixTimeStamp() int64 {
+	return time.Now().Unix() + 3600
+}
