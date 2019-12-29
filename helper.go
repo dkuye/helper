@@ -106,3 +106,14 @@ func countDigits(i int) (count int) {
 	return count
 }
 
+func Shuffle(vals []int) []int {
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	ret := make([]int, len(vals))
+	n := len(vals)
+	for i := 0; i < n; i++ {
+		randIndex := r.Intn(len(vals))
+		ret[i] = vals[randIndex]
+		vals = append(vals[:randIndex], vals[randIndex+1:]...)
+	}
+	return ret
+}
