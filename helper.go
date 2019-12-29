@@ -2,6 +2,7 @@ package helper
 
 import (
 	"github.com/google/uuid"
+	"github.com/leekchan/accounting"
 	"time"
 )
 
@@ -16,4 +17,9 @@ func MySqlTimeStamp() time.Time {
 	myTime, _ := time.Parse(mysqlf, ts)
 
 	return myTime
+}
+
+func FormatNumber(number int) string {
+	ac := accounting.Accounting{Symbol: "", Precision: 0}
+	return ac.FormatMoney(number)
 }
