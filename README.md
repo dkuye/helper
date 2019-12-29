@@ -9,7 +9,6 @@ go get github.com/dkuye/helper
 
 ## Function List
 | Name | Description | Return Value |
-| :-: | :-: | :-: |
 | Uuid | Return Uuid string | `string`  |
 | MySqlTimeStamp | Return MySql timestamp | `time.Time`  |
 | MySqlTimeStampToUnixTimeStamp | Convert MySql timestamp to Unix timestamp | `int64`  |
