@@ -44,3 +44,11 @@ func IntToString(n int) string {
 func Int64ToString(n int64) string {
 	return strconv.FormatInt(n, 10)
 }
+
+func MakeRange(min, max int) []int {
+	a := make([]int, max-min+1)
+	for i := range a {
+		a[i] = min + i
+	}
+	return a
+}
