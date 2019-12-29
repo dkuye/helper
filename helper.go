@@ -3,6 +3,7 @@ package helper
 import (
 	"github.com/google/uuid"
 	"github.com/leekchan/accounting"
+	"golang.org/x/crypto/bcrypt"
 	"time"
 )
 
@@ -27,4 +28,9 @@ func FormatNumber(number int) string {
 func FormatMoney(number float64) string {
 	ac := accounting.Accounting{Symbol: "", Precision: 2}
 	return ac.FormatMoney(number)
+}
+
+func HashPassword(password string) string {
+	bytes, _ := bcrypt.GenerateFromPassword([]byte(password), 14)
+	return string(bytes)
 }
