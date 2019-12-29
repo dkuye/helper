@@ -67,7 +67,6 @@ func PickIntRandomly(data []int) int {
 	return choosen
 }
 
-
 func PickStringRandomly(data []string) string {
 	rand.Seed(time.Now().UnixNano())
 	choosen := data[rand.Intn(len(data))]
@@ -78,3 +77,32 @@ func PickIntRandomlyBetween(min, max int) int {
 	data := MakeRange(min, max)
 	return PickIntRandomly(data)
 }
+
+
+func ShortNumber(number int) string {
+	count := countDigits(number)
+	if count > 3 && count < 7 {
+		// between 1,000 and 999,999
+		return IntToString(number / 1000) + "K"
+	} else if count > 6 && count < 10 {
+		// between 1,000,000  and 999,999,999
+		return IntToString(number / 1000000) + "M"
+	} else if count > 9 && count < 13 {
+		// between 1,000,000,000  and 999,999,999,999
+		return IntToString(number / 1000000000) + "B"
+	} else if count > 12 && count < 16 {
+		// between 1,000,000,000,000  and 999,999,999,999,999
+		return IntToString(number / 1000000000) + "T"
+	}
+	return IntToString(number)
+}
+
+func countDigits(i int) (count int) {
+	for i != 0 {
+
+		i /= 10
+		count = count + 1
+	}
+	return count
+}
+
