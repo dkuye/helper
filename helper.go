@@ -4,6 +4,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/leekchan/accounting"
 	"golang.org/x/crypto/bcrypt"
+	"math/rand"
 	"strconv"
 	"time"
 )
@@ -58,4 +59,22 @@ func MakeRange(min, max int) []int {
 	}
 
 	return a
+}
+
+func PickIntRandomly(data []int) int {
+	rand.Seed(time.Now().UnixNano())
+	choosen := data[rand.Intn(len(data))]
+	return choosen
+}
+
+
+func PickStringRandomly(data []string) string {
+	rand.Seed(time.Now().UnixNano())
+	choosen := data[rand.Intn(len(data))]
+	return choosen
+}
+
+func PickIntRandomlyBetween(min, max int) int {
+	data := MakeRange(min, max)
+	return PickIntRandomly(data)
 }
