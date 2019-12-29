@@ -8,25 +8,25 @@ go get github.com/dkuye/helper
 ```
 
 ## Function List
-| Name | Description | Return Value |
-|:-: |:-: |:-: |
-| Uuid | Return Uuid string | `string`  |
-| MySqlTimeStamp | Return MySql timestamp | `time.Time`  |
-| MySqlTimeStampToUnixTimeStamp | Convert MySql timestamp to Unix timestamp | `int64`  |
-| FormatNumber | Thousand separator | `string`  |
-| FormatMoney | Thousand separator to decimal places | `string`  |
-| HashPassword | Return `bcrypt` hash string  | `string`  |
-| IntToString | Convert `int` value to `string` value | `string`  |
-| Int64ToString | Convert `int64` value to `string` value | `string`  |
-| Uint64ToSting | Convert `uint64` value to `string` value | `string`  |
-| StringToInt | Convert `string` value to `int` value | `int`  |
-| StringToInt | General range slice between to numbers | `[]int`  |
-| PickIntRandomly | Pick an item randomly form a `[]int` | `int`  |
-| PickStringRandomly | Pick an item randomly form a `[]sting` | `string`  |
-| PickIntRandomlyBetween | Pick an item randomly between a range | `int`  |
-| ShortNumber | Shorten thousands | `string`  |
-| Shuffle | Shuffle `[]int` | `[]int`  |
-| ToJson | Convert  `interface{}` to JSON | `string`  |
-| UnixTimeStamp | Convert unix timestamp | `int64`  |
-| ValidatePassword | Validate hashed password | `(bool, error)`  |
+| SN | Name | Description | Return Value |
+|---| --- | --- | --- |
+| 1. | Uuid | Return Uuid string | `string`  |
+| 2. | MySqlTimeStamp | Return MySql timestamp | `time.Time`  |
+| 3. | MySqlTimeStampToUnixTimeStamp | Convert MySql timestamp to Unix timestamp | `int64`  |
+| 4. | FormatNumber | Thousand separator | `string`  |
+| 5. | FormatMoney | Thousand separator to decimal places | `string`  |
+| 6. | HashPassword | Return `bcrypt` hash string  | `string`  |
+| 7. | IntToString | Convert `int` value to `string` value | `string`  |
+| 8. | Int64ToString | Convert `int64` value to `string` value | `string`  |
+| 9. | Uint64ToSting | Convert `uint64` value to `string` value | `string`  |
+| 10. | StringToInt | Convert `string` value to `int` value | `int`  |
+| 11. | StringToInt | General range slice between to numbers | `[]int`  |
+| 12. | PickIntRandomly | Pick an item randomly form a `[]int` | `int`  |
+| 13. | PickStringRandomly | Pick an item randomly form a `[]sting` | `string`  |
+| 14. | PickIntRandomlyBetween | Pick an item randomly between a range | `int`  |
+| 15. | ShortNumber | Shorten thousands | `string`  |
+| 16. | Shuffle | Shuffle `[]int` | `[]int`  |
+| 17. | ToJson | Convert  `interface{}` to JSON | `string`  |
+| 18. | UnixTimeStamp | Convert unix timestamp | `int64`  |
+| 19. | ValidatePassword | Validate hashed password | `(bool, error)`  |
 
