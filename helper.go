@@ -149,3 +149,10 @@ func ToJson(data interface{}) string {
 func UnixTimeStamp() int64 {
 	return time.Now().Unix() + 3600
 }
+
+func ValidatePassword(userPassword string, hashed []byte) (bool, error) {
+	if err := bcrypt.CompareHashAndPassword(hashed, []byte(userPassword)); err != nil {
+		return false, err
+	}
+	return true, nil
+}
