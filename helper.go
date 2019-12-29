@@ -23,3 +23,8 @@ func FormatNumber(number int) string {
 	ac := accounting.Accounting{Symbol: "", Precision: 0}
 	return ac.FormatMoney(number)
 }
+
+func FormatMoney(number float64) string {
+	ac := accounting.Accounting{Symbol: "", Precision: 2}
+	return ac.FormatMoney(number)
+}
