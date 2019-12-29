@@ -1,6 +1,7 @@
 package helper
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/google/uuid"
 	"github.com/leekchan/accounting"
@@ -130,4 +131,13 @@ func Shuffle(vals []int) []int {
 		vals = append(vals[:randIndex], vals[randIndex+1:]...)
 	}
 	return ret
+}
+
+func ToJson(data interface{}) string {
+	b, err := json.Marshal(data)
+	if err != nil {
+		fmt.Println(err)
+		return ""
+	}
+	return  string(b)
 }
