@@ -4,6 +4,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/leekchan/accounting"
 	"golang.org/x/crypto/bcrypt"
+	"strconv"
 	"time"
 )
 
@@ -33,4 +34,13 @@ func FormatMoney(number float64) string {
 func HashPassword(password string) string {
 	bytes, _ := bcrypt.GenerateFromPassword([]byte(password), 14)
 	return string(bytes)
+}
+
+func IntToString(n int) string {
+	s := strconv.Itoa(n)
+	return s
+}
+
+func Int64ToString(n int64) string {
+	return strconv.FormatInt(n, 10)
 }
