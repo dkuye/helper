@@ -1,4 +1,4 @@
-# Helper Functions
+# helper
 
 These are my frequently used helper functions.
 

@@ -6,6 +6,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/leekchan/accounting"
 	"golang.org/x/crypto/bcrypt"
+	"html/template"
 	"math/rand"
 	"os"
 	"strconv"
@@ -14,21 +15,6 @@ import (
 
 func Uuid() string {
 	return uuid.Must(uuid.NewRandom()).String()
-}
-
-func MySqlTimeStamp() time.Time {
-	t := time.Now() //.In(loc)
-	mysqlf := "2006-01-02 15:04:05"
-	ts := t.Format(mysqlf)
-	myTime, _ := time.Parse(mysqlf, ts)
-
-	return myTime
-}
-
-func MySqlTimeStampToUnixTimeStamp(mysqlTS string) int64  {
-	layout := "2006-01-02 15:04:05"
-	t, _ := time.Parse(layout, mysqlTS)
-	return t.Unix()
 }
 
 func FormatNumber(number int) string {
@@ -155,4 +141,28 @@ func ValidatePassword(userPassword string, hashed []byte) (bool, error) {
 		return false, err
 	}
 	return true, nil
+}
+
+func Sum(a, b int) int {
+	return a + b
+}
+
+func HTMLDisplay(str string) template.HTML {
+	return template.HTML(str)
+}
+
+func Due(number int64) bool {
+	if number > time.Now().Unix() {
+		return true
+	}
+	return false
+}
+
+// It secure session and CSRF in production
+func SecureInProduction() bool {
+	if os.Getenv("APP_ENV") == "production" {
+		return true
+	} else {
+		return false
+	}
 }
