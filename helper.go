@@ -3,15 +3,17 @@ package helper
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/dkuye/random"
-	"github.com/google/uuid"
-	"github.com/leekchan/accounting"
-	"golang.org/x/crypto/bcrypt"
 	"html/template"
 	"math/rand"
 	"os"
 	"strconv"
+	"strings"
 	"time"
+
+	"github.com/dkuye/random"
+	"github.com/google/uuid"
+	"github.com/leekchan/accounting"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func Uuid() string {
@@ -84,21 +86,20 @@ func PickIntRandomlyBetween(min, max int) int {
 	return PickIntRandomly(data)
 }
 
-
 func ShortNumber(number int) string {
 	count := countDigits(number)
 	if count > 3 && count < 7 {
 		// between 1,000 and 999,999
-		return IntToString(number / 1000) + "K"
+		return IntToString(number/1000) + "K"
 	} else if count > 6 && count < 10 {
 		// between 1,000,000  and 999,999,999
-		return IntToString(number / 1000000) + "M"
+		return IntToString(number/1000000) + "M"
 	} else if count > 9 && count < 13 {
 		// between 1,000,000,000  and 999,999,999,999
-		return IntToString(number / 1000000000) + "B"
+		return IntToString(number/1000000000) + "B"
 	} else if count > 12 && count < 16 {
 		// between 1,000,000,000,000  and 999,999,999,999,999
-		return IntToString(number / 1000000000) + "T"
+		return IntToString(number/1000000000) + "T"
 	}
 	return IntToString(number)
 }
@@ -130,7 +131,7 @@ func ToJson(data interface{}) string {
 		fmt.Println(err)
 		return ""
 	}
-	return  string(b)
+	return string(b)
 }
 
 func UnixTimeStamp() int64 {
@@ -171,11 +172,25 @@ func SecureInProduction() bool {
 func JBRef() string {
 	t := time.Now()
 	d := t.Format("060102")
-	ref := d + "-" + random.String{Upper: true, Number:true}.Gen(6)
+	ref := d + "-" + random.String{Upper: true, Number: true}.Gen(6)
 	return ref
 }
 
 func RandomPassword() string {
-	str := random.String{Lower: true, Upper:true, Number:true }.Gen(6)
+	str := random.String{Lower: true, Upper: true, Number: true}.Gen(6)
 	return str
+}
+
+func TitleCase(input string) string {
+	words := strings.Split(input, " ")
+	smallwords := " a an on the to "
+
+	for index, word := range words {
+		if strings.Contains(smallwords, " "+word+" ") && word != string(word[0]) {
+			words[index] = word
+		} else {
+			words[index] = strings.Title(word)
+		}
+	}
+	return strings.Join(words, " ")
 }
