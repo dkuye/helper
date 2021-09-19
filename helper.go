@@ -3,6 +3,7 @@ package helper
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/dkuye/random"
 	"github.com/google/uuid"
 	"github.com/leekchan/accounting"
 	"golang.org/x/crypto/bcrypt"
@@ -165,4 +166,16 @@ func SecureInProduction() bool {
 	} else {
 		return false
 	}
+}
+
+func JBRef() string {
+	t := time.Now()
+	d := t.Format("060102")
+	ref := d + "-" + random.String{Upper: true, Number:true}.Gen(6)
+	return ref
+}
+
+func RandomPassword() string {
+	str := random.String{Lower: true, Upper:true, Number:true }.Gen(6)
+	return str
 }
