@@ -29,4 +29,5 @@ go get github.com/dkuye/helper
 | 17. | ToJson | Convert  `interface{}` to JSON | `string`  |
 | 18. | UnixTimeStamp | Convert unix timestamp | `int64`  |
 | 19. | ValidatePassword | Validate hashed password | `(bool, error)`  |
+| 20. | TitleCase | Proper string tile case | `string`  |
 
